@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS</title>
+</head>
+<style>
+    .main{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        box-shadow:inset 0 0 50px #12c8ff;
+        padding: 20px;
+        border-radius:10px;
+        font-family: sans-serif;
+
+    }
+
+    #value1{
+        margin-bottom:10px;
+        margin-left:18px;
+        width:30vh;
+        outline: 1px solid #000;
+        text-align: center;
+        border: none;
+    }
+    #value2{
+        margin-bottom:10px;
+        margin-left:18px;
+        width:30vh;
+        outline: 1px solid #000;
+        text-align: center;
+        border: none;
+
+
+    }
+    #operator{
+        margin-bottom:20px;
+        outline: 1px solid #000;
+        border: none;
+    }
+
+    #total{
+        padding: 5px 10px;
+        width:40vh;
+        text-transform: uppercase;
+        font-size:20px;
+        font-weight: bolder;
+
+
+    }
+
+    span:last-child{
+        font-weight: bolder;
+    }
+
+
+
+</style>
+<body>
+    <div class="main">
+        <form>
+            Value1:<input type="text" id="value1" placeholder="Please Enter First value"><br>
+            Value2:<input type="text" id="value2" placeholder="Please Enter Second value"><br>
+            Operator:
+            <select id="operator">
+                <option value="add">Plus</option>
+                <option value="min">Minus</option>
+                <option value="div">Divide</option>
+                <option value="mul">Multiply</option>
+                <option value="mod">Modulus</option>
+            </select><br>
+        </form>
+
+        <button id="total" onclick="myFunction()">calculate</button><br><br>
+
+        <span>Result:</span>
+        <span id="result"></span>
+    </div>
+<script>
+    function myFunction(){
+        var a = parseInt(document.querySelector("#value1").value);
+        var b = parseInt(document.querySelector("#value2").value);
+        var op = document.querySelector("#operator").value;
+        var calculater;
+
+        if (op == "add"){
+            calculater = a + b;
+        }
+        else if(op == "min"){
+            calculater = a - b;
+        }
+        else if(op == "div"){
+            calculater = a / b;
+        }
+        else if(op == "mul"){
+            calculater = a * b;
+        }
+        else if(op == "mod"){
+            calculater = a %  b;
+        }
+        
+            document.getElementById("result").innerHTML = calculater;
+    }
+</script>
+    
+</body>
+
+</html>
