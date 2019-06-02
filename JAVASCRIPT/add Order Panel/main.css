@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.div {
+
+    margin: 50px 300px;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 30px;
+
+}
+
+
+#myform {
+    display: flex;
+    padding: 10px;
+    font-size: small;
+    font-family: sans-serif;
+
+}
+
+.form_p {
+    position: absolute;
+    top: 62px;
+    padding-left: 5px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+}
+
+.form_p:nth-child(1) {
+    left: 27%;
+
+}
+
+.form_p:nth-child(2) {
+    left: 42%;
+
+}
+
+.form_p:nth-child(3) {
+    left: 51.5%;
+
+}
+
+.form_p:nth-child(4) {
+    left: 61.7%;
+
+}
+
+.selectTag {
+    border: 1px solid #000;
+    border-radius: 25px;
+    outline: none;
+    margin-left: 20px;
+}
+
+option {
+    border: 1px solid #000;
+    border-radius: 25px;
+    outline: none;
+    padding-left: 10px;
+
+}
+
+#qtyid {
+    width: 40px;
+}
+
+#price {
+    width: 60px;
+    margin-left: 20px;
+    display: inline-block;
+    border: 1px solid #000;
+    background-color: #0000001a;
+
+
+}
+
+#addbtn,
+#showbtn {
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline: none;
+    text-transform: uppercase;
+
+}
+
+#tablelst,
+#addressbtn {
+    margin: -25px 525px 0;
+    transform: translateY(-50px);
+    transition: all 0.6s;
+    opacity: 0;
+
+}
+
+#list {
+    font-family: sans-serif;
+
+}
+
+#list>tbody>tr {
+    /* background: blue; */
+
+}
+
+#list>tbody>tr>th {
+    padding: 5px 20px;
+    background-color:#000;
+    color:#fff;
+}
+
+#list>tbody>tr>td {
+    padding: 5px 20px;
+}
+#list>tbody>tr:nth-child(even) {
+    background-color: #00000056;
+}
+
+#addressbtn {
+    margin-top: 20px;
+    padding: 2px;
+    margin-left: 94vh;
+}
+
+#alertmsg {
+    position: absolute;
+    top: 20px;
+    left: 46%;
+    color: #0f0;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+#address {
+    margin-left: 90vh;
+    margin-top: 10px;
+    /* width: 250px; */
+    /* height: 250px; */
+    /* background: chocolate; */
+    transform: translateX(-500px);
+    opacity: 0;
+    transition: all 0.6s;
+}
+
+
+Address{
+    width: 100px;
+
+}

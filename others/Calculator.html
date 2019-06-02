@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Calculator</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        .perent{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            padding: 5px;
+            background: #757F9A;
+            border: 1px solid #6b6666;
+            border-radius: 5px;
+        }
+
+        input[type=button],button{
+            width: 40px;
+            height:40px;
+            margin: 3px;
+            font-size: 20px;
+            font-weight: bolder;
+            border-radius:50%;
+            outline: none;
+            border-style:none;
+            background: #414345;
+            color: #fff;
+            transition:0.4s;
+            cursor: pointer;
+
+        }
+
+        input[type=button]:hover,button:hover{
+            background: #4143456c;
+            
+        }
+
+        .fas{
+            font-size: 16px;
+        }
+        .solve:hover{
+            background: #077a07;
+
+        }
+        .Match_:hover{
+            background: #2549e9;
+
+        }
+        .Delete:hover{
+            background: #ecb10e;
+
+        }
+
+        .Clear:hover{
+            background: #e71010;
+
+        }
+
+        .textview{
+            box-sizing: border-box;
+            width:185px;
+            height: 40px;
+            border: none;
+            padding: 0 9px;
+            outline: none;
+            margin: 5px;
+            font-size: 25px;
+            font-family: sans-serif;
+            font-weight:bold;
+            border-radius: 5px;
+            color: #414345;
+            cursor: default;
+        }
+    
+    
+    </style>
+</head>
+<body>
+    <div class="perent">
+        <form name="form">
+            <input type="text" class="textview" readonly>
+        </form>
+        <table>
+            <tr>
+                <td><button class="Clear" onclick="Clear()">C</button></td>
+                <td><button class="Delete" onclick="Delete()"><i class="fas fa-arrow-alt-circle-left"></i></button></td>
+                <td><button class="Match_" onclick="insert('/')"><i class="fas fa-divide"></i></button></td>
+                <td><button class="Match_" onclick="insert('*')"><i class="fas fa-star-of-life"></i></button></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="insert(7)" value="7"></td>
+                <td><input type="button" onclick="insert(8)" value="8"></td>
+                <td><input type="button" onclick="insert(9)" value="9"></td>
+                <td><button class="Match_" onclick="insert('-')"><i class="fas fa-minus"></i></button></td>                
+            </tr>
+            <tr>
+                <td><input type="button" onclick="insert(4)" value="4"></td>
+                <td><input type="button" onclick="insert(5)" value="5"></td>
+                <td><input type="button" onclick="insert(6)" value="6"></td>
+                <td><button class="Match_" onclick="insert('+')"><i class="fas fa-plus"></i></button></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="insert(1)" value="1"></td>
+                <td><input type="button" onclick="insert(2)" value="2"></td>
+                <td><input type="button" onclick="insert(3)" value="3"></td>
+                <td rowspan="2"><button class="solve" onclick="Solve()" style="height:88px; border-radius:20px"><i class="fas fa-equals"></i></button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" onclick="insert(0)" value="0" style="width:88px; border-radius:20px"></td>
+                <td><input type="button" onclick="insert('.')" value="."></td>
+            </tr>
+        </table>
+    </div>
+
+
+
+    <script>
+        function insert(num){
+            document.querySelector(".textview").value =  document.querySelector(".textview").value+num
+        }
+
+        function Solve(){
+            if(document.querySelector(".textview").length == 0){
+            alert("Hello")
+            }
+            document.querySelector(".textview").value = eval(document.querySelector(".textview").value)
+        }
+        /* 
+
+
+
+        */
+
+        function Clear(){
+            document.querySelector(".textview").value = ""
+        }
+
+        function Delete(num) {
+                document.querySelector(".textview").value = document.querySelector(".textview").value.substring(0, document.querySelector(".textview").value.length-1)
+            }
+        
+    </script>
+</body>
+</html>

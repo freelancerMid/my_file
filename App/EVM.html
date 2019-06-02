@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>EVM Machine</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+      }
+
+      .view_page {
+        width: 500px;
+        /* background-color: chocolate; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #eee;
+        box-shadow: 0px 2px 2px #ccc;
+        margin-right: 50px;
+      }
+      .view_page > img {
+        width: 80%;
+        height: 50%;
+      }
+
+      .alert {
+        width: 40px;
+        height: 40px;
+        margin: 20px;
+        border-radius: 50%;
+        background-color: #f00;
+      }
+
+      .btn {
+        min-width: 100px;
+        padding: 10px;
+        outline: none;
+        border: none;
+        background-color: #00f;
+        border-radius: 100px;
+        color: #ffffff;
+        margin: 10px;
+        cursor: pointer;
+      }
+      .img {
+        height: 90px;
+        margin: 5px;
+      }
+      #bjptd {
+        height: 90px;
+        margin: 5px;
+        width: 90px;
+      }
+      td,
+      th {
+        text-align: center;
+        padding: 0 10px;
+        border: 1px solid #000;
+      }
+      .result {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #R_btn {
+        margin: 20px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="view_page"></div>
+      <div class="table_1">
+        <table style="border:1px solid #000;border-collapse:collapse">
+          <tr>
+            <td style="text-align: center" colspan="5"><b>EVM</b></td>
+          </tr>
+          <tr>
+            <th>S.No.</th>
+            <th>Party Name</th>
+            <th>Symbol</th>
+            <th>Click for Vote</th>
+            <th>Alert</th>
+          </tr>
+          <tr>
+            <td>1.</td>
+            <td>BJP</td>
+            <td>
+              <img class="img" id="bjp_img" src="./image/1.webp" alt="BJP" />
+            </td>
+            <td>
+              <button
+                class="btn"
+                id="bjp"
+                onclick="vote(id,'alert1','bjp_img')"
+              >
+                BJP
+              </button>
+            </td>
+            <td><div class="alert" id="alert1"></div></td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>CONGRESS</td>
+            <td>
+              <img
+                class="img"
+                id="congress_img"
+                src="./image/2.png"
+                alt="Congress"
+                height="90px"
+              />
+            </td>
+            <td>
+              <button
+                class="btn"
+                id="congress"
+                onclick="vote(id,'alert2','congress_img')"
+              >
+                CONGRESS
+              </button>
+            </td>
+            <td><div class="alert" id="alert2"></div></td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>BSP</td>
+            <td>
+              <img id="bsp_img" src="./image/3.png" alt="bsp" height="90px" />
+            </td>
+            <td>
+              <button
+                class="btn"
+                id="bsp"
+                onclick="vote(id,'alert3','bsp_img')"
+              >
+                BSP
+              </button>
+            </td>
+            <td><div class="alert" id="alert3"></div></td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>AAP</td>
+            <td>
+              <img id="aap_img" src="./image/4.png" alt="AAP" height="90px" />
+            </td>
+            <td>
+              <button
+                class="btn"
+                id="aap"
+                onclick="vote(id,'alert4','aap_img')"
+              >
+                AAP
+              </button>
+            </td>
+            <td><div class="alert" id="alert4"></div></td>
+          </tr>
+          <tr>
+            <td>5.</td>
+            <td>CMP</td>
+            <td>
+              <img id="cmp_img" src="./image/5.png" alt="CMP" height="90px" />
+            </td>
+            <td>
+              <button
+                class="btn"
+                id="cmp"
+                onclick="vote(id,'alert5','cmp_img')"
+              >
+                CMP
+              </button>
+            </td>
+            <td><div class="alert" id="alert5"></div></td>
+          </tr>
+          <tr>
+            <td>6.</td>
+            <td>JDU</td>
+            <td>
+              <img id="jdu_img" src="./image/6.svg" alt="JDU" height="90px" />
+            </td>
+            <td>
+              <button
+                class="btn"
+                id="jdu"
+                onclick="vote(id,'alert6','jdu_img')"
+              >
+                JDU
+              </button>
+            </td>
+            <td><div class="alert" id="alert6"></div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="result">
+      <button id="R_btn" onclick="Result()">Show Result</button>
+      <span></span>
+    </div>
+    <script>
+      var BJP = 0;
+      var CONGRESS = 0;
+      var BSP = 0;
+      var AAP = 0;
+      var CMP = 0;
+      var JDU = 0;
+
+      function vote(id, alertid, imgid) {
+        var i = "";
+        var img = document.getElementById(imgid);
+        var alert1 = document.getElementById(alertid);
+        var preview = document.querySelector(".view_page");
+
+        // Alert Button Light Script....................................
+        alert1.style = "background-color:green;box-shadow:0 0 10px green;";
+        // setTimeout(() => {
+        //   alert1.style = "background-color:red;box-shadow:none";
+        // }, 1500);
+
+        // Image Append in View Page....................................
+        i += "<img id='img1' style = height: 90px src=" + img.src + ">";
+        preview.innerHTML = i;
+        setTimeout(() => {
+          alert1.style = "background-color:red;box-shadow:none";
+          document.getElementById("img1").style.display = "none";
+        }, 1500);
+        // count Voting.................................................
+        switch (id) {
+          case "bjp":
+            BJP++;
+            break;
+          case "congress":
+            CONGRESS++;
+            break;
+          case "bsp":
+            BSP++;
+            break;
+          case "aap":
+            AAP++;
+            break;
+          case "cmp":
+            CMP++;
+            break;
+          case "jdu":
+            JDU++;
+            break;
+
+          default:
+            null;
+            break;
+        }
+      }
+
+      function Result() {
+        var R =
+          "<table border=1><tr><th>Party Name</th><th>Total Vote</th></tr>";
+        R += "<tr><td>BJP</td><td>" + BJP + "</td></tr>";
+        R += "<tr><td>CONGRESS</td><td>" + CONGRESS + "</td></tr>";
+        R += "<tr><td>BSP</td><td>" + BSP + "</td></tr>";
+        R += "<tr><td>AAP</td><td>" + AAP + "</td></tr>";
+        R += "<tr><td>CMP</td><td>" + CMP + "</td></tr>";
+        R += "<tr><td>JDU</td><td>" + JDU + "</td></tr>";
+
+        document.querySelector(".main").style.display = "none";
+        document.querySelector("#R_btn").style.display = "none";
+        document.querySelector(".result>span").innerHTML = R;
+      }
+    </script>
+  </body>
+</html>

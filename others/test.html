@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var i=1
+        var arr = [1,2,3,       4,5,6,105,9,10];
+        var arr = "Hello";
+        var arrs = "Hello            ";
+        var str = "'world'";
+        var x = (arr +" "+ str)
+//                       String...........................................................................................................................
+    document.write("<b><u>STRING</u></b> <br>");
+    
+
+    // indexOf method
+        document.write("IndexOf method: ","<b>",arr.indexOf("l"),"</b>", "<br>");
+
+    // lastIndexOf method
+        document.write("LastIndexOf method: ", "<b>",arr.lastIndexOf("l"), "</b>", "<br>");
+
+    //concat method
+        document.write("Concat method: ", "<b>",arr.concat(str), "</b>", "<br>");
+
+    //CharAt Method
+        document.write("CharAt Method: ", "<b>",arr.charAt(2), "</b>", "<br>");
+
+    //CharAt Method with Length Method  
+        document.write("CharAt with Length Method: ", "<b>",arr.charAt(arr.length-1), "</b>", "<br>");
+
+    // CharCodeAt Method
+        document.write("CharCodeAt Method: ", "<b>",arr.charCodeAt(), "</b>", "<br>");
+
+    // toUpperCase and toLowerCase Method
+        document.write("toUpperCase Method: ", "<b>",arr.toUpperCase(), "</b>", "<br>");
+        document.write("toLowerCase Method: ", "<b>",arr.toLowerCase(), "</b>", "<br>");
+
+    // Substr Method
+        document.write("Substr Method: ", "<b>",arr.substr(0,3), "</b>", "<br>");
+
+    // Substring Method
+        document.write("Substring Method: ", "<b>",arr.substring(0,3), "</b>", "<br>");
+
+    // Trim Method
+        document.write("Trim Method: ", "<b>",arrs.trim(), "</b>", "<br>");
+
+    // Search Method
+        document.write("Search Method: ", "<b>",arr.search("o"), "</b>", "<br>");
+
+    // split with length Method
+        document.write("Split Method: ", "<b>",x.split(" "), "</b>", "<br>");
+        document.write("Split with length Method: ", "<b>",x.split(" ").length, "</b>", "<br><br>");
+
+//                              Number............................................................................................................................
+    document.write("<b><u>NUMBER</u></b> <br>");
+        var num = 100;
+        num1 = "200";
+        num2 = "300px"
+
+    // toString Method
+    document.write("Search Method: ", "<b>",num.toString(), "</b>", "<br>");
+
+    
+
+
+
+
+    </script>
+</body>
+</html>

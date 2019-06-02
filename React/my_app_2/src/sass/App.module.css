@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #4e4e4e;
+}
+
+.link {
+  color: #ffffff;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  font-weight: 500;
+}
+
+.Logo {
+  color: #fff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.subTitle {
+  color: #da880d;
+  letter-spacing: 8px;
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+.carousel-indicators {
+  display: none;
+}
+/*# sourceMappingURL=App.module.css.map */

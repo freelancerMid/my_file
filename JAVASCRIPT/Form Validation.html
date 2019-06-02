@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        html::selection{
+            background-color:chocolate;
+            color:#000;
+        }
+
+        body::-moz-selection{
+            background:chocolate;
+            color:#000;
+        }
+        .form_class{
+            position: absolute;
+            top: 50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+
+        fieldset{
+            padding: 20px;
+        }
+
+        p{
+            display: inline-block;
+            font-family: sans-serif;
+            font-size: small;
+            text-transform: uppercase;
+            width: 40%;
+            padding-top:10px; 
+        }
+
+        input{
+            border: 1px solid #000;
+        }
+
+        input[type="checkbox"],span{
+            margin-top: 20px;
+            padding-left:5px;
+        }
+
+        button{
+            display: flex;
+            margin: auto;
+            margin-top: 15px;
+            padding: 5px 10px;
+        }
+
+        #P_show{
+            font-size:10px;
+            font-weight: bolder;
+            text-align: center;
+            text-shadow: 0 0 10px #000;
+            color:#000;
+            width:39px;
+            height: 20px;
+            position: absolute;
+            left: 76.5%;
+            top:55.5%;
+            cursor:pointer;
+            /* background-color:chocolate; */
+            /* display:none; */
+        }
+
+        input[type="radio"]{
+            cursor: pointer;
+        }
+
+        input[type="date"]{
+            cursor: pointer;
+            padding-left: 13px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+        }
+
+    </style>
+    
+</head>
+<body>
+    <div class="form_class"> 
+        <form method="POST" onSubmit="return Submit()">
+            <fieldset>
+                <p for="firstNsssame">
+                    first Name:
+                </p>
+                    <input type="text" id="firstName" onblur="BlurY(id)" required><br>
+                <p for="lastName">
+                    Last Name:
+                </p>
+                    <input type="text" id="lastName" onblur="BlurY(id)" required><br>
+                <p>
+                Date Of Birth:
+                </p>
+                    <input type="date" id="date" onblur="Blur_date(id)" required><br>
+                <p>
+                Gender:
+                </p>
+                    <input type="radio" name="gender" value="Male" id="male" required>  Male
+                    <input type="radio" name="gender" value="Female" id="female" required> Female<br>
+                <p>
+                    Email ID:
+                </p>
+                    <input type="email" id="Email" onblur="BlurY(id)" required><br>
+                <p>
+                    Password:
+                </p>
+                    <input type="password" id="pwd" onblur="Blurs(id)" required><br>
+                        <p id="P_show" onclick="PWD_show()">Show</p>
+                <p>
+                    Repeat Password:
+                </p>
+                    <input type="password" id="rpwd" onblur="Blur_match(id)" required><br>
+                    <input type="checkbox" id="checkbox1" required><span><a href="#">Term and Conditions</a></span><br>
+                <button type="submit">Submit</button>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+    /* Any all other Minimum Length Function Define*/
+        
+        function BlurY(id) {
+        var firstName = document.getElementById(id);
+            if (firstName.value.length <= 3 || firstName.value.length >= 20) {
+                firstName.style = "border:1px solid red;box-shadow:0 0 5px red;";
+            }
+            else{
+                firstName.style = "border:1px solid green;box-shadow:0 0 5px green;";
+                
+            }
+        }
+    /* password Minimum Length Function Define*/
+
+        function Blurs(id) {
+        var firstName = document.getElementById(id);
+            if (firstName.value.length <= 8) {
+                firstName.style = "border:1px solid red;box-shadow:0 0 5px red;";
+            }
+            else{
+                firstName.style = "border:1px solid green;box-shadow:0 0 5px green;";
+                
+            }
+        }
+    /* Date Of Birth Function Define*/
+        function Blur_date(id) {
+        var firstName = document.getElementById(id);
+            if (firstName.value.length == "") {
+                firstName.style = "border:1px solid red;box-shadow:0 0 5px red;";
+            }
+            else{
+                firstName.style = "border:1px solid green;box-shadow:0 0 5px green;";
+                
+            }
+        }
+
+    /* Repeat password match Function Define*/
+        function Blur_match(id) {
+        var firstName = document.getElementById(id);
+            if (firstName.value.length <= "" || pwd.value.length == firstName.value.length) {
+                firstName.style = "border:1px solid red;box-shadow:0 0 5px red;";
+            }
+            else{
+                firstName.style = "border:1px solid green;box-shadow:0 0 5px green;";
+                
+            }
+        }
+        var Show = false;
+        function PWD_show(){
+            if(pwd.value.length > ""){
+                if(Show){
+                    pwd.type = "password"
+                    Show = false
+                    P_show.textContent = "Show"
+                    P_show.style.borderColor = "green"
+                }
+                else{
+                    pwd.type = "text"
+                    Show = true;
+                    P_show.textContent = "Hide"
+                };
+            }
+        else{
+		P_show.style.display = "block";
+
+        }
+	}
+
+    // function Submit(){
+    //     if(PWD_show() = Blur_match() = Blur_date() = Blurs() = BlurY() == true){
+    //         console.log("Hello");
+    //         return true;
+    //     }
+    //     else{
+    //         console.log("World");
+    //         return false;
+
+    //     }
+    // }
+    </script>
+</body>
+</html>

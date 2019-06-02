@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <form name="forms1">
+        <h2><b>Ques.1 </b>How many type of list</h2>
+        <input type="radio" name="A1" id="Aa1" value=A.3><b>A. </b>3<br>
+        <input type="radio" name="A1" id="Aa2" value=B.2><b>B. </b>2<br>
+        <input type="radio" name="A1" id="Aa3" value=C.4><b>C. </b>4<br>
+        <input type="radio" name="A1" id="Aa4" value=D.none><b>D. </b>none<br>
+        <h2><b>Ques.2 </b>How many type of Style Sheet</h2>
+        <input type="radio" name="A2" id="B1" value=A.6><b>A. </b>6<br>
+        <input type="radio" name="A2" id="B2" value=B.3><b>B. </b>3<br>
+        <input type="radio" name="A2" id="B3" value=C.5><b>C. </b>5<br>
+        <input type="radio" name="A2" id="B4" value=D.1><b>D. </b>1<br>
+        <h2><b>Ques.2 </b>How many type of Javascript</h2>
+        <input type="radio" name="A3" id="C1" value=A.2><b>A. </b>2<br>
+        <input type="radio" name="A3" id="C2" value=B.3><b>B. </b>3<br>
+        <input type="radio" name="A3" id="C3" value=C.5><b>C. </b>5<br>
+        <input type="radio" name="A3" id="C4" value=D.1><b>D. </b>1<br><br><br>
+    </form>
+    <input type="submit" value="Submit" onclick=" return Submit()">
+
+    <span id="result"></span>
+    <span id="rewar"></span>
+
+
+
+
+
+    <script>
+        var c_ans = ['B.2', 'B.3', 'C.5'];
+
+        function Submit() {
+            var reward = 0;
+            var x = document.forms1.A1.value;
+            var y = document.forms1.A2.value;
+            var z = document.forms1.A3.value;
+            var r =
+                '<table border=1 style=border-collapse:collapse><tr><th>Questions</th><th>Your Answers</th><th>Currect Answers</th></tr>'
+            const data = {
+                'q1': 'Q1',
+                'a1': x,
+                'q2': 'Q2',
+                'a2': y,
+                'q3': 'Q3',
+                'a3': z
+            }
+
+            r += '<tr><td>' + data.q1 + '</td><th>' + data.a1 + '</th><th>B.2</th></tr>'
+            r += '<tr><td>' + data.q2 + '</td><th>' + data.a2 + '</th><th>B.3</th></tr>'
+            r += '<tr><td>' + data.q3 + '</td><th>' + data.a3 + '</th><th>C.5</th></tr></table>'
+
+            if (x == c_ans[0]) {
+                reward++
+            }
+            if (y == c_ans[1]) {
+                reward++
+            }
+            if (z == c_ans[2]) {
+                reward++
+            }
+
+            document.getElementById('result').innerHTML = r
+            var xs = document.getElementById('rewar').innerHTML = '<b>Rewards: ' + reward + '</b>'
+            console.log(typeof (x))
+            return false;
+
+        }
+    </script>
+
+</body>
+
+</html>

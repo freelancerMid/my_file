@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="./JQuery/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="./materialize/css/materialize.css" />
+    <script src="./materialize/js/materialize.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>App</title>
+    <style>
+      button {
+        padding: 3px 25px;
+      }
+
+      ::selection {
+        background: red;
+        color: white;
+      }
+
+      p::selection {
+        background: blue;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class=" offset-s3 col s6 offset-s3 #616161 grey darken-2">
+          <p class="flow-text text-center center-align white-text">
+            Please fill your Details
+          </p>
+        </div>
+      </div>
+      <form action="#">
+        <div class="row">
+          <div
+            class="offset-s3 col s6 offset-s3 #616161 grey darken-2 flow-text white-text"
+          >
+            Full Name<input id="name" type="text" placeholder="Name" />
+          </div>
+          <div
+            class="offset-s3 col s6 offset-s3 #616161 grey darken-2 flow-text white-text"
+          >
+            Email ID<input id="email" type="email" placeholder="Email Id" />
+          </div>
+          <div
+            class="offset-s3 col s6 offset-s3 #616161 grey darken-2 flow-text white-text"
+          >
+            Contact Number<input
+              id="mnumber"
+              type="number"
+              placeholder="Mobile Number"
+            />
+          </div>
+          <button
+            class="offset-s3 col s3 #616161 grey darken-2 flow-text white-text"
+            type="button"
+            onclick="Savedata()"
+          >
+            Save
+          </button>
+          <button
+            class="col s3 #616161 grey darken-2 flow-text white-text tex"
+            type="submit"
+          >
+            Updated
+          </button>
+        </div>
+      </form>
+      <span id="msg"></span>
+    </div>
+    <script>
+      const arr = [];
+
+      function Savedata() {
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let number = document.getElementById("mnumber").value;
+        if (name.trim().length > 3 && email.trim().length > 5 && number.length == 10) {
+          let tlb =
+            "<table border='1'><tr><th>ID</th><th>Name</th><th>Email</th><th>Number</th><th>Remove Data</th></tr>";
+
+          var data = {
+            id: 0,
+            Name: name,
+            Email: email,
+            Number: number
+          };
+
+          arr.push(data);
+          arr.forEach(i => {
+            ++i.id;
+            tlb +=
+              "<tr id=" +
+              i.id +
+              "><th>" +
+              i.id +
+              "</th><td>" +
+              i.Name +
+              "</td><td>" +
+              i.Email +
+              "</td><td>" +
+              i.Number +
+              "</td><td><button onclick='del(" +
+              i.id +
+              ")'>Delete</button></td></tr>";
+            document.getElementById("msg").innerHTML = tlb;
+          });
+          tlb += "</table>";
+        }
+      }
+
+      function del(id) {
+        let delbtn = document.getElementById("onebtn");
+
+        let newarr = arr.filter((i, index) => {
+          if (id == i.id) {
+            arr[index] = "";
+            if(arr[index] == ""){
+              delete arr[index];
+            }
+          }
+        });
+        document.getElementById(id).style = "display:none;";
+      }
+    </script>
+  </body>
+</html>

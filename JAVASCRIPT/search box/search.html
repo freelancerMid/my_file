@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./main.css">
+    <script src="./main.js"></script>
+    <title>Document</title>
+    <style>
+        
+        
+        
+        
+    </style>
+    <script>
+        "use strict";
+        var arr = [
+            { "id": "id1", "path": "1.jpg" },
+            { "id": "id2", "path": "22.jpg" }]
+
+    
+        // arr.forEach(i=>{
+        // Images += "<img class='image-css' id="+i.id+ " src="+i.path+">";
+        // })
+        // document.getElementById("img").innerHTML = Images;
+
+
+        function search_value() {
+                var Images = "";
+            const search_input = document.getElementById("search").value;
+            var newarr = arr.filter((i) => {
+                return i.id == search_input;
+            })
+            console.log(newarr)
+            // if(newarr != search_input)
+            newarr.forEach((j)=> {
+                Images += "<img src="+j.path+">";
+            })
+
+            document.getElementById("img").innerHTML = Images;
+        }
+    </script>
+</head>
+<body>
+<div class="main-srch">
+    <input type="search" name="search" id="search" placeholder="Search...">
+    <input type="button" name="srch-btn" id="srch-btn" value="Search" onclick="search_value()">
+</div>
+    <div id="img">
+    </div>
+
+
+
+</body>
+</html>
